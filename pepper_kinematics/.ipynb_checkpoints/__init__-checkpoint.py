@@ -1,9 +1,13 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+
 import numpy as np
 import scipy as sp
 from scipy import linalg
 
-import forward_kinematics as fk
-import inverse_kinematics as ik
+from . import forward_kinematics as fk
+from . import inverse_kinematics as ik
 
 right_arm_tags = ["RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"]
 right_arm_initial_pose = [1.0, -0.2, 1.57-0.2, 1.0, -1.57]
@@ -69,5 +73,5 @@ def left_arm_set_orientation(angles, target_pos, target_ori, epsilon = 0.0001):
 def left_arm_get_trans(angles):
     return fk.calc_trans_matrix(angles)
 
-def Right_arm_get_trans(angles, right=True):
-    return fk.calc_trans_matrix(angles)
+def right_arm_get_trans(angles, right=True):
+    return fk.calc_trans_matrix(angles, right=True)

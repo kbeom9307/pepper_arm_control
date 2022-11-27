@@ -3,7 +3,7 @@ import numpy as np
 import scipy as sp
 from scipy import linalg
 
-import forward_kinematics as fk
+from . import forward_kinematics as fk
 
 def calc_inv_pos(angles, target_pos, target_ori, epsilon, right=True):
     p  = np.array([0,0,0,1])
@@ -30,7 +30,7 @@ def calc_inv_pos(angles, target_pos, target_ori, epsilon, right=True):
             break
             
         if sum > sum_old:
-            print '# set_position error : Distance can not converged.'
+            #print '# set_position error : Distance can not converged.'
             return None
         sum_old = sum
     return angs

@@ -1,18 +1,34 @@
-# __Python Pepper kinematics and visualization__
+# Pepper_arm_control
+--- 
+## Softbank pepper's arm control GUI with python sdk of naoqi
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/45393163/129912978-de897529-ea64-4456-91a1-b06b9c23c348.gif" > 
+</p>
+
+Simple forward & inverse kinematics control implementation.
+
+Implementation of control through key input
 
 ---
 
-Pepper python SDK(python2.7)를 이용한 foward & inverse kinematics 제어 구현.
+## Prerequisite
+ 
+- python2.7
+- naoqi python sdk
+- tkinter
+- numpy
+- scipy
 
-forward kinematics, inverse kinematics와 jacobain 정리.
+---
 
-Pepper python motion & vision API를 정리, python tkinter를 사용하여 GUI를 이용한 제어 가능.
+## Study 
 
-기존 position inverse kinematics에 rotation 추가 EEF의 x,y,z 와 방향 모두 제어 가능하도록 수정.
+-  summary and annotation of Forward kinematics, inverse kinematics, and jacobain theorem
+-  summary of major naqoi motion API
+- https://github.com/kbeom9307/pepper_arm_control/blob/main/jacobian_doc.ipynb
+- https://github.com/kbeom9307/pepper_arm_control/blob/main/jacobian_doc.ipynb
 
-출처 : https://github.com/sugarsweetrobotics/python_pepper_kinematics
 
-![GUI](https://user-images.githubusercontent.com/45393163/129912978-de897529-ea64-4456-91a1-b06b9c23c348.gif)
-
-![visualization](https://user-images.githubusercontent.com/45393163/129913492-e5e9e602-b232-42f6-8197-459af1ecc59e.png)
+reference : https://github.com/sugarsweetrobotics/python_pepper_kinematics
 

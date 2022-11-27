@@ -4,7 +4,8 @@ import scipy as sp
 from scipy import linalg
 import Euler_Angles
 
-
+Lx = -0.05700
+L0 = 0.08682
 L1 = 0.14974
 L2 = 0.015
 L3 = 0.1812
@@ -38,7 +39,7 @@ def calc_trans_matrix(angles, right=False):
     _L1_ = -L1 if right else L1
     _L2_ = -L2 if right else L2
     
-    T1 = transY(-angles[0], 0, _L1_, 0)
+    T1 = transY(-angles[0], Lx, _L1_, L0)
     T2 = transZ(angles[1], 0, 0, 0)
     Td = transY(9.0/180.0*math.pi, L3, _L2_, 0)
     T3 = transX(angles[2], 0, 0, 0)
@@ -60,7 +61,7 @@ def calc_fk_and_jacob(angles, jacob=True, right=True):
     _L1_ = -L1 if right else L1
     _L2_ = -L2 if right else L2
 
-    T1 = transY(-angles[0], 0, _L1_, 0)
+    T1 = transY(-angles[0], Lx, _L1_, L0)
     T2 = transZ(angles[1], 0, 0, 0)
     Td = transY(9.0/180.0*math.pi, L3, _L2_, 0)
     T3 = transX(angles[2], 0, 0, 0)
