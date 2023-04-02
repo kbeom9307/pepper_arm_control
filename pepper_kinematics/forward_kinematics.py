@@ -4,13 +4,16 @@ import scipy as sp
 from scipy import linalg
 import Euler_Angles
 
-Lx = -0.05700
-L0 = 0.08682
 L1 = 0.14974
+L1_z = 	0.08682
+L1_x = -0.057
 L2 = 0.015
 L3 = 0.1812
+L3_z = 0.00013
 L4 = 0
 L5 = 0.150
+L5_y = 0.0236
+L5_z = 0.02284
 L6 = 0.0695
 L7 = 0.0303
 
@@ -39,12 +42,12 @@ def calc_trans_matrix(angles, right=False):
     _L1_ = -L1 if right else L1
     _L2_ = -L2 if right else L2
     
-    T1 = transY(-angles[0], Lx, _L1_, L0)
+    T1 = transY(-angles[0], L1_x, _L1_, L1_z)
     T2 = transZ(angles[1], 0, 0, 0)
-    Td = transY(9.0/180.0*math.pi, L3, _L2_, 0)
+    Td = transY(9.0/180.0*math.pi, L3, _L2_, L3_z)
     T3 = transX(angles[2], 0, 0, 0)
     T4 = transZ(angles[3], 0, 0, 0)
-    T5 = transX(angles[4], L5, 0, 0)
+    T5 = transX(angles[4], L5, L5_y, L5_z)
     T6 = transZ(0, L6, 0, -L7)
     
     T1Abs = T1
@@ -61,12 +64,12 @@ def calc_fk_and_jacob(angles, jacob=True, right=True):
     _L1_ = -L1 if right else L1
     _L2_ = -L2 if right else L2
 
-    T1 = transY(-angles[0], Lx, _L1_, L0)
+    T1 = transY(-angles[0], L1_x, _L1_, L1_z)
     T2 = transZ(angles[1], 0, 0, 0)
-    Td = transY(9.0/180.0*math.pi, L3, _L2_, 0)
+    Td = transY(9.0/180.0*math.pi, L3, _L2_, L3_z)
     T3 = transX(angles[2], 0, 0, 0)
     T4 = transZ(angles[3], 0, 0, 0)
-    T5 = transX(angles[4], L5, 0, 0)
+    T5 = transX(angles[4], L5, L5_y, L5_z)
     T6 = transZ(0, L6, 0, -L7)
     
     T1Abs = T1
